@@ -25,13 +25,13 @@
 * negocio
 	* [] glossario_negocio
 	* [] regras_negocio
-	* []visao_negocio
+	* [x]visao_negocio
 
 * requisitos
 	* []requisitos_software
-		* [] casos_uso_crud_config
-		* [] casos_uso_conducao
-		* [] casos_uso_analise
+		* [x] casos_uso_crud_config
+		* [x] casos_uso_conducao
+		* [x] casos_uso_analise
 		* [] prototipo_interface
 
 
