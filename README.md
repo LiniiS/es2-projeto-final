@@ -25,7 +25,7 @@
 * negocio
 	* [] glossario_negocio
 	* [] regras_negocio
-	* [x]visao_negocio
+	* [x] visao_negocio
 
 * requisitos
 	* []requisitos_software
