@@ -32,7 +32,8 @@
 		* [x] casos_uso_crud_config
 		* [x] casos_uso_conducao
 		* [x] casos_uso_analise
-		* [] prototipo_interface
+		* [x] prototipo_interface (https://marvelapp.com/prototype/2a1iieb6)
+			
 
 
 
