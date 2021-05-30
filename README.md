@@ -3,7 +3,7 @@
 ### Discentes: Aline Santos (RA) && Patrick Tobias  Valente (RA)
 ### Docente: Leandro Luque
 
-*Este projeto visa atender às necessidades de uma ONG que atua na comunidade da cidade de (?) ajudando animais carentes e abandonados que são recebidos por diversos parceiros e que precisam encontrar um novo lar.*
+*Este projeto visa atender às necessidades de uma ONG que atua junto à comunidade da Região Metropolitana de São Paulo, ajudando animais carentes e abandonados que são recebidos por diversos parceiros e que precisam encontrar um novo lar.*
 
 
 #### Status do projeto:
