@@ -23,12 +23,12 @@
 	* [] instrucoes
 
 * negocio
-	* [] glossario_negocio
-	* [] regras_negocio
+	* [x] glossario_negocio
+	* [x] regras_negocio
 	* [x] visao_negocio
 
 * requisitos
-	* []requisitos_software
+	* [x]requisitos_software
 		* [x] casos_uso_crud_config
 		* [x] casos_uso_conducao
 		* [x] casos_uso_analise
