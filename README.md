@@ -28,7 +28,7 @@
 	* [x] visao_negocio
 
 * requisitos
-	* [x]requisitos_software
+	* [x] requisitos_software
 		* [x] casos_uso_crud_config
 		* [x] casos_uso_conducao
 		* [x] casos_uso_analise
