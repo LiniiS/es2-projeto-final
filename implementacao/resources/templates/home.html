@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+	<head th:replace="~{base :: head}" />
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Pets para adoção')}"></div>
+		
+				
+			<div class="card mt-3" th:each="pet : ${pets}">
+				<div class="card-header alert-info" th:text="${pet.nomePet}">Nome do Pet</div>
+				
+				<div class="card-body">
+				<div class="row">
+						<div class="col-12 col-sm-8 mb-3">
+							<div class="row mb-3">
+								<div class="col-md-5">Local: <span th:text="${pet.cidade}" readonly></span> </div>
+								<div class="col-md-7">Data de Acolhimento: <span th:text="${#temporals.format(pet.dataDeAcolhimento, 'dd/MM/yyyy')}" readonly></span></div>
+							</div>
+							
+							<div class="row mb-2">
+								<div class="col-md-5">Porte: <span th:text="${pet.porteDoAnimal.getDisplayText}"readonly></span> </div>
+								<div class="col-md-7">Sexo: <span th:text="${pet.sexo.getDisplayText}" readonly></span></div>
+							</div>
+								<small class="md-5 font-italic">Para maiores informações do porte entre em contato</small>
+							
+							<div class="mt-3">Contato</div>
+							<div> <a class="form-control col-md-5" th:text="${pet.urlDoContato}" value="url do contato" readonly/></a></div>
+								
+							<div class="mt-4">Descrição</div>
+							<div>
+								<textarea disabled="disabled" class="form-control"  th:text="${pet.descricao}"></textarea>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div>
+								<img class="img-thumbnail shadow p-3 mb-5 bg-white rounded" th:src="${pet.urlImagem}" src =""/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+	    </div>
+	</body>
+	<footer class="container mt-4 d-flex justify-content-center">
+		<span class=" text-center text-lg-start bg-light text-muted alert alert-info mt-3 text-center" role="alert">
+  				Quer adotar mas não sabe como? saiba mais <a href="/home/sobre" class="alert-link">aqui</a> e fique por dentro da hope!
+		</span>
+	</footer>
+</html>
+

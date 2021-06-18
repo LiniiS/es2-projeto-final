@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+	<head th:replace="~{base :: head}"></head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Atualizar Cadastro do Pet')}"></div>
+			
+			<div class="card mt-3">
+		
+				<form action="#" th:action="@{/home/animais/salvarAnimal}" th:object="${animal}" class="card-body"  method="POST">
+				<div class="form-group">
+					<input type="hidden" th:field="*{id}" class="form-control"/>
+				</div>
+				
+				<div class="form-group">
+					<label for="nomeDoPet">Nome do Pet</label>
+					<input th:field="*{nomeDoPet}" class="form-control" placeholder="Tot�"/>
+					<small>Informe o nome do animalzinho</small>
+					
+				</div>
+				<!-- 
+					<div class="form-group">
+						<label for="dataDeAcolhimento">Data de Acolhimento</label>
+						<input th:field="${temporals.format(animal.dataDeAcolhimento), 'dd/MM/yyyy'}"  class="form-control" placeholder="25/03/2021"/>
+						<small>Data de acolhimento do animal</small>
+					</div>
+				 -->
+				<div class="form-group">
+					<label for="cidade">Cidade</label>
+					<input th:field="*{cidade}"  class="form-control" placeholder="Mogi das Cruzes"/>
+					<small>Informe a cidade em que o animal se encontra</small>
+					
+				</div>					
+				<div class="form-group">
+					<label for="contatoDoAcolhedor">Contato do Acolhedor</label>
+					<input th:field="*{contatoDoAcolhedor}" class="form-control" placeholder="t.me/SalvaPets"/>
+					<small>Informe um meio para contato (email ou webmessenger)</small>
+					
+				</div>
+				
+				<div class="form-group">
+					<label for="status">Status de adoção</label>
+					<select class="form-control form-control-sm" name="status" th:field="*{status}">
+	   					 <option th:each="statusOpt : ${T(br.com.fatec.ads.es.hopeapi.model.StatusPet).values()}" 
+	       						 th:value="${statusOpt.name()}" th:text="${statusOpt.displayText}">
+	     				 </option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label for="status">Porte do Animal</label>
+					<select class="form-control form-control-sm" name="porteDoAnimal" th:field="*{porteDoAnimal}">
+	   					 <option th:each="statusOpt : ${T(br.com.fatec.ads.es.hopeapi.model.PortePet).values()}" 
+	       						 th:value="${statusOpt.name()}" th:text="${statusOpt.displayText}">
+	     				 </option>
+					</select>
+				</div>			
+				
+				<div class="form-group">
+					<label for="status">Sexo do Animal</label>
+					<select class="form-control form-control-sm" name="sexo" th:field="*{sexo}">
+	   					 <option th:each="statusOpt : ${T(br.com.fatec.ads.es.hopeapi.model.SexoPet).values()}" 
+	       						 th:value="${statusOpt.name()}" th:text="${statusOpt.displayText}">
+	     				 </option>
+					</select>
+				</div>
+				
+			<!-- 
+				
+				
+				<div class="form-group">
+					<label for="porteDoAnimal">Porte do Animal</label>
+					<input th:field="*{porteDoAnimal}" class="form-control" placeholder="pequeno"/>
+					<small>Informe o porte do Animal (mini, pequeno, médio, grande)</small>
+				</div>
+				
+				<div class="form-group">
+					<label for="sexo">Sexo</label>
+					<input th:field="*{sexo}" class="form-control" placeholder="macho"/>
+					<small>Informe se o animal é macho ou fêmea</small>
+				</div>
+			-->
+				
+				<div class="form-group">
+					<label for="urlImagem">Imagem do Pet</label>
+					<input th:field="*{urlImagem}" class="form-control" placeholder="https://i.imgur.com/Pjudl2r.jpg"/>
+					<small>Faça upload da imagem e coloque aqui a url</small>
+				</div>
+				
+				<button class= "btn btn-outline-success my-2 my-sm-0" type="submit">Salvar</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

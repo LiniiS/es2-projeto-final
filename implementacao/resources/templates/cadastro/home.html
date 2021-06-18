@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+	<head th:replace="~{base :: head}" />
+	<body onLoad="onLoad()">
+		<div th:replace="~{base :: logo}"></div>
+		<div class="container" id="cadastros">
+			<div th:replace="~{base :: titulo('Pets aguardando adoção')}"></div>
+			<div class="card mt-3" v-for="pet in pets">
+				<div class="card-header alert-info">{{pet.nomePet}}</div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-12 col-sm-8 mb-3">
+							<div class="row"> 
+								<div class="col-md-7">Localização<input class="form-control" v-model="pet.cidade" readonly/></div>
+								<div class="col-md-4">
+									Data de Adoção<input v-bind:class="{'is-invalid' : pet.erros.dataDeAdocao !== ''}" class="form-control" v-model="pet.dataDeAdocao"/>
+									<div v-if="pet.erros.dataDeAdocao" class="invalid-feedback">
+										{{pet.erros.dataDeAdocao}}
+									</div>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col-md-7">
+									Status<input class="form-control" v-model="pet.status" readonly/></div>
+								<div class="col-md-4">Pet Id<input class="form-control" v-model="pet.id" readonly/></div>
+							</div>
+								<div class="class-md-7 mt-3">Contato atual:
+								<a v-bind:href="pet.urlDoContato">{{pet.urlDoContato}}</a></div>
+							<div class="mt-3">Descrição</div>
+							<div>
+								<textarea class="form-control" disabled="disabled" v-model="pet.descricao">{{pet.descricao}}</textarea>
+							</div>
+							<div class="mt-3">Comentário</div>
+							<div>
+								<textarea class="form-control" v-model="pet.comentario">{{pet.comentario}}</textarea>
+							</div>
+							<div class="row mt-3">
+								<button v-if="pet.solicitacaoEnviada" class= "btn btn-outline-success my-2 my-sm-0 mt-2 ml-3">Solicitação enviada</button>
+								<button v-else v-on:click="solicitarCadastroAdocao(pet)" class= "btn btn-outline-info my-2 my-sm-0 mt-2 ml-3">Solicitar adoção</button>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div>
+								<img class="img-thumbnail shadow p-3 mb-5 bg-white rounded" v-bind:src="pet.urlImagem"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+	    </div>
+	    <script>
+	    	function onLoad(){
+	    		var app = new Vue({
+	    			el : '#cadastros',
+	    			data : {
+	    				pets: []
+	    			},
+	    			mounted(){
+	    				axios
+	    					.get('http://localhost:8080/api/pets/aguardando')
+	    					.then(response => {
+	    						response.data.forEach(pet => {
+	    							pet.alteracaoEnviada = false,
+	    							pet.erros = {
+	    									dataDeAdocao: ''
+	    							}
+	    						})
+	    						
+	    						this.pets = response.data
+	    					})
+	    			},
+	    			methods: {
+	    				solicitarCadastroAdocao : function(pet){
+	    					pet.erros = {
+    							dataDeAdocao: ''
+	    					};
+	    					
+	    					axios
+	    					.post('http://localhost:8080/api/cadastros',{
+	    						petId: pet.id,
+	    						cidade: pet.cidade,
+	    						dataDeAdocao: pet.dataDeAdocao,
+	    						status: pet.status,
+	    						descricao: pet.descricao,
+	    						comentario: pet.comentario
+	    					})
+	    					.then(response => pet.alteracaoEnviada = true)
+	    					.catch(error => {
+	    						error.response.data.errors.forEach(error => {
+	    							pet.erros[error.field] = error.defaultMessage;
+	    						})
+	    					})
+	    					
+	    				}
+	    			}
+	    		});
+	    		
+	    	}
+	    </script>
+	    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</body>
+	<footer class="container mt-3">
+		 <div class="card">
+			  <div class="card-header">
+			   	<h5 class="card-title">Suporte aos Parceiros</h5>
+			  </div>
+			  <div class="card-body">
+		     	<p class="card-text">Para maiores informações e gerenciamentos dos cadastros entre em contato conosco.</p>
+	    		<i class="fas fa-cat icon"></i>
+		    </div>
+		</div>
+	</footer>
+</html>

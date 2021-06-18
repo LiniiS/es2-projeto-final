@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+	<head th:replace="~{base :: head}"></head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Atualização de Cadastros')}"></div>
+			<div class="card mt-3">
+				<form th:action="@{pet/salvarPet}" th:object="${pet}" class="card-body" action="#" method="POST">
+					<div class="form-group">
+						<input type="hidden" th:field="*{id}" class="form-control"/>
+					</div>
+				
+				
+				<div class="form-group">
+					
+					<label for="nomePet">Nome do animalzinho</label>
+					<input th:field="*{nomePet}" th:errorclass="is-invalid" class="form-control"/>
+					<small>Informe o nome do animal.</small>
+					<div class="invalid-feedback" th:errors="*{nomePet}">
+						erros associados ao nome do animal
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="porteDoAnimal">Porte</label>
+					<input th:field="*{porteDoAnimal}"  th:errorclass="is-invalid" class="form-control"/>
+					<small>Informe o porte do animal (mini, pequeno, médio, grande)</small>
+					<div class="invalid-feedback"  th:errors="*{porteDoAnimal}">
+						erros associados ao porte do animal
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="sexo">Sexo</label>
+					<input th:field="*{sexo}"  th:errorclass="is-invalid" class="form-control"/>
+					<small>Informe o sexo do animal (macho ou fêmea)</small>
+					<div class="invalid-feedback"  th:errors="*{sexo}">
+						erros associados sexo do animal
+					</div>
+				</div>					
+				<div class="form-group">
+					<label for="cidade">Localização</label>
+					<input th:field="*{cidade}"  th:errorclass="is-invalid" class="form-control"/>
+					<small>Informe a cidade em que se localiza o animal.</small>
+					<div class="invalid-feedback"  th:errors="*{cidade}">
+						erros associados ao nome da cidade
+					</div>
+				</div>	
+				<div class="form-group">
+					<label for="urlDoContato">Contato</label>
+					<input th:field="*{urlDoContato}"  th:errorclass="is-invalid" class="form-control"/>
+					<small>Informe um meio para contato (via web messengers).</small>
+					<div class="invalid-feedback"  th:errors="*{urlDoContato}">
+						erros associados ao contato
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="urlImagem">Imagem do Pet</label>
+					<input th:field="*{urlImagem}"  th:errorclass="is-invalid" class="form-control"/>
+					<small>Insira uma url da imagem do animal.</small>
+					<div class="invalid-feedback"  th:errors="*{urlImagem}">
+						erros associados à url da imagem
+					</div>		
+				</div>
+				<div class="form-group">
+					<label for="descricao">Descrição</label>
+					<textarea th:field="*{descricao}" class="form-control"></textarea>
+					<small>Adicione detalhes do animal.</small>
+				</div>
+				<button class= "btn btn-outline-info my-2 my-sm-0" type="submit">Atualizar</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

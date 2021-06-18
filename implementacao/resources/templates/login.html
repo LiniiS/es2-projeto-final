@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{base :: head}" />
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Login')}"></div>
+	
+		
+			<div class="card mt-3">
+			
+			<form th:action="@{/login}" class="card-body" method="post">
+				<div class="form-group">
+					<label for="username">Usuário</label>
+					<input name="username" class="form-control" placeholder="usuario"/>
+				</div>
+				
+				<div class="form-group">
+					<label for="password">Senha</label>
+					<input type="password" name="password" class="form-control" placeholder="senha"/>
+				</div>
+				<button class= "btn btn-outline-info my-2 my-sm-0" type="submit">Entrar</button>
+			</form>
+			
+			<div class="alert alert-info mt-3 text-center" role="alert">
+  				Ainda não é parceiro? <a href="https://t.me/LiniiS" class="alert-link">fale conosoco</a> e transforme a vida de muitos pets!
+			</div>
+			</div>
+	    </div>
+	</body>
+	
+		
+</html>

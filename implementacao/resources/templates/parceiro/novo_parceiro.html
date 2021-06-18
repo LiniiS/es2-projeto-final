@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+	<head th:replace="~{base :: head}"></head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Cadastro de novo Parceiro')}"></div>
+			
+			<div class="card mt-3">
+		
+				<form action="#" th:action="@{/home/parceiros/salvarParceiro}" th:object="${parceiro}" class="card-body"  method="POST">
+				<div class="form-group">
+					<label for="nomeParceiro">Nome</label>
+					<input th:field="*{nomeParceiro}" class="form-control" placeholder="Nome Sobrenome"/>
+					<small>Informe o nome completo</small>
+					
+				</div>
+				<div class="form-group">
+					<label for="logradouro">Logradouro</label>
+					<input th:field="*{logradouro}"  class="form-control" placeholder="Rua das Pedras 450"/>
+					<small>Informe o logradouro (rua, avenida, travessa)</small>
+					
+				</div>
+				<div class="form-group">
+					<label for="bairro">Bairro</label>
+					<input th:field="*{bairro}"  class="form-control" placeholder="Jardim Campestre"/>
+					<small>Informe o bairro ou jardim</small>
+					
+				</div>					
+				<div class="form-group">
+					<label for="cidade">Cidade</label>
+					<input th:field="*{cidade}" class="form-control" placeholder="São Paulo"/>
+					<small>Informe a cidade em que se localiza o parceiro</small>
+					
+				</div>
+				<div class="form-group">
+					<label for="estado">Estado</label>
+					<input th:field="*{estado}" class="form-control" placeholder="SP"/>
+					<small>Informe o estado em que se localiza o parceiro</small>
+
+				</div>
+				
+				<div class="form-group">
+					<label for="email">Contato</label>
+					<input th:field="*{email}" class="form-control" placeholder="nome@email.com"/>
+					<small>Informe um meio para contato (via web messengers ou email).</small>
+					
+				</div>
+				<button class= "btn btn-outline-success my-2 my-sm-0" type="submit">Salvar</button>
+				</form>
+
+			</div>
+		</div>
+	</body>
+</html>
