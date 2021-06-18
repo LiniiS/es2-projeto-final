@@ -14,10 +14,10 @@
 	
 * analise-projeto
 	* doc_arquitetura_de_soft
-		* [] visao_logica
-		* [] visao_casos_uso
-		* [] diagrama_classes
-		* [] diagrama_sequencia
+		* [x] visao_logica
+		* [x] visao_casos_uso
+		* [x] diagrama_classes
+		* [x] diagrama_sequencia
 * implementacao
 	* [] codigo-fonte
 	* [] instrucoes
