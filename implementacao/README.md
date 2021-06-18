@@ -35,20 +35,26 @@
 
 ### Instruções
 1. A aplicação é iniciada a partir da classe HopeApiAplication:
+
 ![](https://i.imgur.com/6pwhsIu.png)
 
 2. A aplicação apresentará uma lista de animais diferentes a cada acesso ou atualização.
 
 3. Para ter acesso aos menus internos da aplicação, o parceiro efetua a autenticação:
+
 ![](https://i.imgur.com/qNhKhGb.png)
 
 4. Para acessar uma das ações de gerenciamento, o parceiro seleciona a opção Gerenciar Pets
+
 ![](https://i.imgur.com/doI2JsF.png)
 
 5. Ao acessar a opção Gerenciar Pets, a aplicação apresentará a relação dos animais cadastrados
+
 ![](https://i.imgur.com/1k64owF.png)
 
 6. Para acessar a opção Gerenciar Parceiros, a aplicação não apresenta o acesso diferenciado do Administrador (ainda), mas a aplicação apresentará ao Admnistrador devidamente autenticado:
+
+
 ![](https://i.imgur.com/25ohtIa.png)
 
 
