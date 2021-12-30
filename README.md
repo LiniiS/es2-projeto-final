@@ -1,8 +1,5 @@
 
-## Projeto Final da Disciplina de Eng de Software II - ADS FATEC Mogi
-### Discentes: Aline Santos (RA 1840482012001) && Patrick Tobias  Valente (RA 184048212023)
-### Docente: Leandro Luque
-
+## Projeto Final da Disciplina de Eng de Software 
 *Este projeto visa atender às necessidades de uma ONG que atua junto à comunidade da Região Metropolitana de São Paulo, ajudando animais carentes e abandonados que são recebidos por diversos parceiros e que precisam encontrar um novo lar.*
 
 
